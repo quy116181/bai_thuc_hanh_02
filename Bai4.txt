@@ -1,0 +1,29 @@
+//Bài 4:
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct {
+    char hoTen[50];
+    char maSV[20];
+    float diem1;
+    float diem2;
+    float diem3;
+} SinhVien;
+
+
+struct Node {
+    SinhVien data;      
+    struct Node *next;   
+};
+typedef struct Node Node;
+
+
+typedef struct {
+    Node *head; 
+    Node *tail; 
+} LinkedList;
+
+
+
+

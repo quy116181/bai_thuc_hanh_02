@@ -1,0 +1,52 @@
+//Bài 2:
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int r, c;
+    printf("Nhap so hang (r) va so cot (c): ");
+    scanf("%d%d", &r, &c);
+
+    
+    float **a = (float **)malloc(r * sizeof(float *));
+    if (a == NULL) {
+        printf("Khong du bo nho dong!\n");
+        return 1;
+    }
+
+   
+    for (int i = 0; i < r; i++) {
+        a[i] = (float *)malloc(c * sizeof(float));
+        if (a[i] == NULL) {
+            printf("Khong du bo nho tai hang %d!\n", i);
+            return 1;
+        }
+    }
+
+   
+    printf("Nhap cac phan tu cua ma tran:\n");
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            printf("a[%d][%d] = ", i, j);
+            scanf("%f", (*(a + i) + j)); 
+        }
+    }
+
+   
+    printf("\nMa tran vua nhap la:\n");
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            printf("%.2f\t", *(*(a + i) + j));
+        }
+        printf("\n");
+    }
+
+  
+    for (int i = 0; i < r; i++) {
+        free(a[i]);
+    }
+    free(a);
+
+    return 0;
+}
+
